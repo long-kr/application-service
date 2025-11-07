@@ -1,4 +1,4 @@
-package com.jobHunt.application_service.entity;
+package com.jobhunt.application_service.entity;
 
 import java.time.Instant;
 import java.util.List;

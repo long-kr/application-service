@@ -1,11 +1,11 @@
-package com.jobHunt.application_service.dto;
+package com.jobhunt.application_service.dto;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.UUID;
 
-import com.jobHunt.application_service.entity.Application;
+import com.jobhunt.application_service.entity.Application;
 
 import lombok.Builder;
 

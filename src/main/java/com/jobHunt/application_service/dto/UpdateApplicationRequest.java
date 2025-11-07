@@ -1,4 +1,4 @@
-package com.jobHunt.application_service.dto;
+package com.jobhunt.application_service.dto;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import com.jobHunt.application_service.entity.Application;
+import com.jobhunt.application_service.entity.Application;
 
 import jakarta.validation.Valid;
 

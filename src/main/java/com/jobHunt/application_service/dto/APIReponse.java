@@ -1,4 +1,4 @@
-package com.jobHunt.application_service.dto;
+package com.jobhunt.application_service.dto;
 
 import java.time.Instant;
 

@@ -1,4 +1,4 @@
-package com.jobHunt.application_service.config;
+package com.jobhunt.application_service.config;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
-import com.jobHunt.application_service.dto.APIReponse;
+import com.jobhunt.application_service.dto.APIReponse;
 
 import lombok.extern.slf4j.Slf4j;
 

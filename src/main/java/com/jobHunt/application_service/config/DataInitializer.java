@@ -1,14 +1,14 @@
-package com.jobHunt.application_service.config;
+package com.jobhunt.application_service.config;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.jobHunt.application_service.entity.Application;
-import com.jobHunt.application_service.entity.ApplicationStatus;
-import com.jobHunt.application_service.entity.Contact;
-import com.jobHunt.application_service.repository.ApplicationRepository;
+import com.jobhunt.application_service.entity.Application;
+import com.jobhunt.application_service.entity.ApplicationStatus;
+import com.jobhunt.application_service.entity.Contact;
+import com.jobhunt.application_service.repository.ApplicationRepository;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
