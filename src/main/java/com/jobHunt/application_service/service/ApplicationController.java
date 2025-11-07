@@ -1,19 +1,20 @@
-package com.job_hunt.application_service.service;
+package com.jobHunt.application_service.service;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.job_hunt.application_service.dto.APIReponse;
-import com.job_hunt.application_service.dto.ApplicationDto;
-import com.job_hunt.application_service.dto.CreateApplicationRequest;
-import com.job_hunt.application_service.dto.UpdateApplicationRequest;
-
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import com.jobHunt.application_service.dto.APIReponse;
+import com.jobHunt.application_service.dto.ApplicationDto;
+import com.jobHunt.application_service.dto.CreateApplicationRequest;
+import com.jobHunt.application_service.dto.UpdateApplicationRequest;
+
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController

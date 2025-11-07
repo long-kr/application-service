@@ -1,15 +1,15 @@
-package com.job_hunt.application_service.service;
+package com.jobHunt.application_service.service;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import com.job_hunt.application_service.dto.ApplicationDto;
-import com.job_hunt.application_service.dto.CreateApplicationRequest;
-import com.job_hunt.application_service.dto.UpdateApplicationRequest;
-import com.job_hunt.application_service.entity.Application;
-import com.job_hunt.application_service.repository.ApplicationRepository;
+import com.jobHunt.application_service.dto.ApplicationDto;
+import com.jobHunt.application_service.dto.CreateApplicationRequest;
+import com.jobHunt.application_service.dto.UpdateApplicationRequest;
+import com.jobHunt.application_service.entity.Application;
+import com.jobHunt.application_service.repository.ApplicationRepository;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
