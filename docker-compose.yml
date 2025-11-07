@@ -1,0 +1,16 @@
+services:
+    application-db:
+        image: postgres:16-alpine
+        container_name: application-db
+        restart: unless-stopped
+        environment:
+            POSTGRES_USER: dummyuser
+            POSTGRES_PASSWORD: dummypassword
+            POSTGRES_DB: appdb
+        ports:
+            - "5433:5432"
+        volumes:
+            - application-db-data:/var/lib/postgresql/data
+
+volumes:
+    application-db-data:
