@@ -8,15 +8,13 @@ import org.hibernate.validator.constraints.URL;
 
 import com.jobhunt.application_service.entity.Application;
 
-import jakarta.validation.Valid;
-
 public record UpdateApplicationRequest(
-                @Valid @Length(min = 2, max = 100) String location,
-                @Valid @Length(min = 2, max = 100) String jobTitle,
-                @Valid @Length(min = 2, max = 100) String companyName,
-                @Valid @URL String postUrl,
-                @Valid @Length(min = 1, max = 5000) String notes,
-                @Valid List<ContactCreateRequest> contacts) implements Serializable {
+                @Length(min = 2, max = 100) String location,
+                @Length(min = 2, max = 100) String jobTitle,
+                @Length(min = 2, max = 100) String companyName,
+                @URL String postUrl,
+                @Length(min = 1, max = 5000) String notes,
+                List<ContactCreateRequest> contacts) implements Serializable {
 
         private static final long serialVersionUID = 1L;
 

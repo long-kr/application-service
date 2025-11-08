@@ -10,18 +10,17 @@ import org.hibernate.validator.constraints.URL;
 import com.jobhunt.application_service.entity.Application;
 import com.jobhunt.application_service.entity.ApplicationStatus;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 
 public record CreateApplicationRequest(
-                @Valid @NotBlank String jobId,
-                @Valid @NotBlank String userSupabaseId,
-                @Valid @NotBlank @Length(min = 2, max = 100) String location,
-                @Valid @NotBlank @Length(min = 2, max = 100) String jobTitle,
-                @Valid @NotBlank @Length(min = 2, max = 100) String companyName,
-                @Valid @URL String postUrl,
-                @Valid @Length(min = 1, max = 5000) String notes,
-                @Valid List<ContactCreateRequest> contacts
+                @NotBlank String jobId,
+                @NotBlank String userSupabaseId,
+                @NotBlank @Length(min = 2, max = 100) String location,
+                @NotBlank @Length(min = 2, max = 100) String jobTitle,
+                @NotBlank @Length(min = 2, max = 100) String companyName,
+                @URL String postUrl,
+                @Length(min = 1, max = 5000) String notes,
+                List<ContactCreateRequest> contacts
 
 ) implements Serializable {
 

@@ -43,7 +43,8 @@ public class ApplicationController {
     }
 
     @PutMapping(APPLICATION_ID)
-    public APIReponse<ApplicationDto> update(@PathVariable String id, @RequestBody UpdateApplicationRequest body) {
+    public APIReponse<ApplicationDto> update(@PathVariable String id,
+            @Valid @RequestBody UpdateApplicationRequest body) {
         return APIReponse.success("updated", applicationService.update(UUID.fromString(id), body));
 
     }
