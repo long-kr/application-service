@@ -1,9 +1,9 @@
-package com.jobhunt.application_service.dto;
+package com.jobhunt.applicationservice.dto;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import com.jobhunt.application_service.entity.Contact;
+import com.jobhunt.applicationservice.entity.Contact;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;

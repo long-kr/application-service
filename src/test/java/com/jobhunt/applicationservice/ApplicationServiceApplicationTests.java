@@ -1,4 +1,4 @@
-package com.job_hunt.application_service;
+package com.jobhunt.applicationservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

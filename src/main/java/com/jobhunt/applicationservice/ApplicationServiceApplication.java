@@ -1,4 +1,4 @@
-package com.jobhunt.application_service;
+package com.jobhunt.applicationservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

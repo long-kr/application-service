@@ -1,4 +1,4 @@
-package com.jobhunt.application_service.entity;
+package com.jobhunt.applicationservice.entity;
 
 public enum ApplicationStatus {
     DRAFT,

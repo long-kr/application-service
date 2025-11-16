@@ -1,14 +1,14 @@
-package com.jobhunt.application_service.config;
+package com.jobhunt.applicationservice.config;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.jobhunt.application_service.entity.Application;
-import com.jobhunt.application_service.entity.ApplicationStatus;
-import com.jobhunt.application_service.entity.Contact;
-import com.jobhunt.application_service.repository.ApplicationRepository;
+import com.jobhunt.applicationservice.entity.Application;
+import com.jobhunt.applicationservice.entity.ApplicationStatus;
+import com.jobhunt.applicationservice.entity.Contact;
+import com.jobhunt.applicationservice.repository.ApplicationRepository;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -36,7 +36,7 @@ public class DataInitializer implements CommandLineRunner {
         private void createMockApplications() {
                 List<Application> mockApplications = Arrays.asList(
                                 Application.builder()
-                                                .userSupabaseId("user_123456")
+                                                .userSupabaseId("supabase-user-uuid-1")
                                                 .jobTitle("Senior Java Developer")
                                                 .companyName("TechCorp Solutions")
                                                 .status(ApplicationStatus.APPLIED)
@@ -62,7 +62,7 @@ public class DataInitializer implements CommandLineRunner {
                                                 .build(),
 
                                 Application.builder()
-                                                .userSupabaseId("user_123456")
+                                                .userSupabaseId("supabase-user-uuid-1")
                                                 .jobTitle("Full Stack Developer")
                                                 .companyName("StartupX")
                                                 .status(ApplicationStatus.INTERVIEWING)
@@ -81,7 +81,7 @@ public class DataInitializer implements CommandLineRunner {
                                                 .build(),
 
                                 Application.builder()
-                                                .userSupabaseId("user_123456")
+                                                .userSupabaseId("supabase-user-uuid-1")
                                                 .jobTitle("Backend Engineer")
                                                 .companyName("CloudBase Inc")
                                                 .status(ApplicationStatus.OFFER_RECEIVED)
@@ -107,7 +107,7 @@ public class DataInitializer implements CommandLineRunner {
                                                 .build(),
 
                                 Application.builder()
-                                                .userSupabaseId("user_123456")
+                                                .userSupabaseId("supabase-user-uuid-1")
                                                 .jobTitle("Software Engineer")
                                                 .companyName("MegaCorp")
                                                 .status(ApplicationStatus.REJECTED)
@@ -125,7 +125,7 @@ public class DataInitializer implements CommandLineRunner {
                                                 .build(),
 
                                 Application.builder()
-                                                .userSupabaseId("user_123456")
+                                                .userSupabaseId("supabase-user-uuid-1")
                                                 .jobTitle("Java Architect")
                                                 .companyName("Enterprise Solutions Ltd")
                                                 .status(ApplicationStatus.DRAFT)
@@ -136,7 +136,7 @@ public class DataInitializer implements CommandLineRunner {
                                                 .build(),
 
                                 Application.builder()
-                                                .userSupabaseId("user_789012")
+                                                .userSupabaseId("supabase-user-uuid-2")
                                                 .jobTitle("DevOps Engineer")
                                                 .companyName("Cloud Native Co")
                                                 .status(ApplicationStatus.APPLIED)
@@ -156,7 +156,7 @@ public class DataInitializer implements CommandLineRunner {
                                                 .build(),
 
                                 Application.builder()
-                                                .userSupabaseId("user_789012")
+                                                .userSupabaseId("supabase-user-uuid-2")
                                                 .jobTitle("Lead Software Engineer")
                                                 .companyName("FinTech Innovations")
                                                 .status(ApplicationStatus.WITHDRAWN)
@@ -168,7 +168,7 @@ public class DataInitializer implements CommandLineRunner {
                                                 .build(),
 
                                 Application.builder()
-                                                .userSupabaseId("user_789012")
+                                                .userSupabaseId("supabase-user-uuid-2")
                                                 .jobTitle("Principal Engineer")
                                                 .companyName("Tech Giants Corp")
                                                 .status(ApplicationStatus.ACCEPTED)

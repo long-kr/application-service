@@ -1,36 +1,42 @@
-package com.jobhunt.application_service.service;
+package com.jobhunt.applicationservice.service;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import com.jobhunt.application_service.dto.ApplicationDto;
-import com.jobhunt.application_service.dto.CreateApplicationRequest;
-import com.jobhunt.application_service.dto.UpdateApplicationRequest;
-import com.jobhunt.application_service.entity.Application;
-import com.jobhunt.application_service.repository.ApplicationRepository;
+import com.jobhunt.applicationservice.dto.ApplicationDto;
+import com.jobhunt.applicationservice.dto.CreateApplicationRequest;
+import com.jobhunt.applicationservice.dto.UpdateApplicationRequest;
+import com.jobhunt.applicationservice.entity.Application;
+import com.jobhunt.applicationservice.repository.ApplicationRepository;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
-public class ApplicationServiceImp implements ApplicationService {
+public class ApplicationService {
 
     private final ApplicationRepository applicationRepository;
 
-    @Override
-    public List<ApplicationDto> findAll() {
-        log.info("===========> findAll");
+    public List<ApplicationDto> findAll(String supabaseUserId) {
+        log.info("===========> findAll by userSupabaseId: {}", supabaseUserId);
 
+        if (supabaseUserId != null && !supabaseUserId.isEmpty()) {
+            log.info("===========> findAll by userSupabaseId: {}", supabaseUserId);
+            return applicationRepository.findAllByUserSupabaseId(supabaseUserId).stream()
+                    .map(ApplicationDto::toDto)
+                    .toList();
+        }
+
+        log.info("===========> findAll");
         return applicationRepository.findAll().stream()
                 .map(ApplicationDto::toDto)
                 .toList();
     }
 
-    @Override
     public ApplicationDto getById(UUID id) {
         log.info("===========> getApplicationById: {}", id);
 
@@ -42,17 +48,16 @@ public class ApplicationServiceImp implements ApplicationService {
 
     }
 
-    @Override
     public ApplicationDto create(CreateApplicationRequest body) {
         log.info("===========> create: {}", body);
 
         Application application = CreateApplicationRequest.toEntity(body);
+
         applicationRepository.save(application);
         return ApplicationDto.toDto(application);
 
     }
 
-    @Override
     public ApplicationDto update(UUID id, UpdateApplicationRequest body) {
         log.info("===========> update: {}, {}", id, body);
 
@@ -65,4 +70,5 @@ public class ApplicationServiceImp implements ApplicationService {
 
         return ApplicationDto.toDto(application);
     }
+
 }

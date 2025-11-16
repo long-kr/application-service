@@ -1,4 +1,4 @@
-package com.jobhunt.application_service.dto;
+package com.jobhunt.applicationservice.dto;
 
 import java.io.Serializable;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import com.jobhunt.application_service.entity.Application;
+import com.jobhunt.applicationservice.entity.Application;
 
 public record UpdateApplicationRequest(
                 @Length(min = 2, max = 100) String location,

@@ -1,4 +1,4 @@
-package com.jobhunt.application_service.entity;
+package com.jobhunt.applicationservice.entity;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
