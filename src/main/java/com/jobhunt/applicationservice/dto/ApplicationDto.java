@@ -5,8 +5,6 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.UUID;
 
-import com.jobhunt.applicationservice.entity.Application;
-
 import lombok.Builder;
 
 @Builder
@@ -21,24 +19,8 @@ public record ApplicationDto(
         String notes,
         String status,
         Instant appliedOn,
-        Instant createOn) implements Serializable {
+        Instant createdOn) implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
-
-    public static ApplicationDto toDto(Application application) {
-        return ApplicationDto.builder()
-                .id(application.getId())
-                .jobId(application.getJobId())
-                .userSupabaseId(application.getUserSupabaseId())
-                .location(application.getLocation())
-                .jobTitle(application.getJobTitle())
-                .companyName(application.getCompanyName())
-                .postUrl(application.getPostUrl())
-                .notes(application.getNotes())
-                .status(application.getStatus().name())
-                .appliedOn(application.getAppliedOn())
-                .createOn(application.getCreatedOn())
-                .build();
-    }
 }

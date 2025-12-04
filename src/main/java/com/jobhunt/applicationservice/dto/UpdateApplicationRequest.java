@@ -6,8 +6,6 @@ import java.util.List;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import com.jobhunt.applicationservice.entity.Application;
-
 public record UpdateApplicationRequest(
                 @Length(min = 2, max = 100) String location,
                 @Length(min = 2, max = 100) String jobTitle,
@@ -17,35 +15,4 @@ public record UpdateApplicationRequest(
                 List<ContactCreateRequest> contacts) implements Serializable {
 
         private static final long serialVersionUID = 1L;
-
-        public static Application toEntity(UpdateApplicationRequest request, Application application) {
-                application.setLocation(request.location() == null || request.location().isEmpty()
-                                ? application.getLocation()
-                                : request.location());
-
-                application.setJobTitle(request.jobTitle() == null || request.jobTitle().isEmpty()
-                                ? application.getJobTitle()
-                                : request.jobTitle());
-
-                application.setCompanyName(request.companyName() == null || request.companyName().isEmpty()
-                                ? application.getCompanyName()
-                                : request.companyName());
-
-                application.setPostUrl(request.postUrl() == null || request.postUrl().isEmpty()
-                                ? application.getPostUrl()
-                                : request.postUrl());
-
-                application.setNotes(request.notes() == null || request.notes().isEmpty()
-                                ? application.getNotes()
-                                : request.notes());
-
-                application.setContacts(request.contacts() == null || request.contacts().isEmpty()
-                                ? application.getContacts()
-                                : request.contacts().stream()
-                                                .map(ContactCreateRequest::toEntity)
-                                                .toList());
-
-                return application;
-
-        }
 }

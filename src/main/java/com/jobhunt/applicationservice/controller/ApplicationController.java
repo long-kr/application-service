@@ -18,11 +18,12 @@ import com.jobhunt.applicationservice.dto.CreateApplicationRequest;
 import com.jobhunt.applicationservice.dto.UpdateApplicationRequest;
 import com.jobhunt.applicationservice.service.ApplicationService;
 
+import jakarta.annotation.Nonnull;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/{api-version}")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class ApplicationController {
 
@@ -40,7 +41,7 @@ public class ApplicationController {
     @GetMapping(APPLICATION)
     public APIReponse<List<ApplicationDto>> list(
             @RequestParam(required = false) String supabaseUserId) {
-        return APIReponse.success("success", applicationService.findAll(supabaseUserId));
+        return APIReponse.success("success", applicationService.findByUserSupabaseId(supabaseUserId));
     }
 
     @GetMapping(APPLICATION_ID)
@@ -55,7 +56,7 @@ public class ApplicationController {
 
     @PutMapping(APPLICATION_ID)
     public APIReponse<ApplicationDto> update(@PathVariable String id,
-            @Valid @RequestBody UpdateApplicationRequest body) {
+            @Nonnull @Valid @RequestBody UpdateApplicationRequest body) {
         return APIReponse.success("updated", applicationService.update(UUID.fromString(id), body));
 
     }

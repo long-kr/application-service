@@ -1,5 +1,6 @@
 package com.jobhunt.applicationservice.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,6 +12,7 @@ import com.jobhunt.applicationservice.dto.UpdateApplicationRequest;
 import com.jobhunt.applicationservice.entity.Application;
 import com.jobhunt.applicationservice.repository.ApplicationRepository;
 
+import jakarta.annotation.Nonnull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,27 +23,26 @@ public class ApplicationService {
 
     private final ApplicationRepository applicationRepository;
 
-    public List<ApplicationDto> findAll(String supabaseUserId) {
+    public List<ApplicationDto> findByUserSupabaseId(String supabaseUserId) {
         log.info("===========> findAll by userSupabaseId: {}", supabaseUserId);
 
         if (supabaseUserId != null && !supabaseUserId.isEmpty()) {
             log.info("===========> findAll by userSupabaseId: {}", supabaseUserId);
+
             return applicationRepository.findAllByUserSupabaseId(supabaseUserId).stream()
-                    .map(ApplicationDto::toDto)
+                    .map(Application::toDto)
                     .toList();
         }
 
-        log.info("===========> findAll");
-        return applicationRepository.findAll().stream()
-                .map(ApplicationDto::toDto)
-                .toList();
+        return new ArrayList<>();
+
     }
 
-    public ApplicationDto getById(UUID id) {
+    public ApplicationDto getById(@Nonnull UUID id) {
         log.info("===========> getApplicationById: {}", id);
 
         return applicationRepository.findById(id)
-                .map(ApplicationDto::toDto)
+                .map(Application::toDto)
                 .orElseThrow(() -> {
                     throw new IllegalArgumentException("Application not found with id: " + id);
                 });
@@ -51,14 +52,15 @@ public class ApplicationService {
     public ApplicationDto create(CreateApplicationRequest body) {
         log.info("===========> create: {}", body);
 
-        Application application = CreateApplicationRequest.toEntity(body);
+        Application application = Application.toEntity(body);
 
         applicationRepository.save(application);
-        return ApplicationDto.toDto(application);
+
+        return Application.toDto(application);
 
     }
 
-    public ApplicationDto update(UUID id, UpdateApplicationRequest body) {
+    public ApplicationDto update(UUID id, @Nonnull UpdateApplicationRequest body) {
         log.info("===========> update: {}, {}", id, body);
 
         Application application = applicationRepository.findById(id)
@@ -66,9 +68,9 @@ public class ApplicationService {
                     throw new IllegalArgumentException("Application not found with id: " + id);
                 });
 
-        applicationRepository.save(UpdateApplicationRequest.toEntity(body, application));
+        applicationRepository.save(Application.toEntity(body, application));
 
-        return ApplicationDto.toDto(application);
+        return Application.toDto(application);
     }
 
 }
