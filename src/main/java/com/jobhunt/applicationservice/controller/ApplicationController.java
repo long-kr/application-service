@@ -18,7 +18,6 @@ import com.jobhunt.applicationservice.dto.CreateApplicationRequest;
 import com.jobhunt.applicationservice.dto.UpdateApplicationRequest;
 import com.jobhunt.applicationservice.service.ApplicationService;
 
-import jakarta.annotation.Nonnull;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -40,7 +39,7 @@ public class ApplicationController {
      */
     @GetMapping(APPLICATION)
     public APIReponse<List<ApplicationDto>> list(
-            @RequestParam(required = false) String supabaseUserId) {
+            @RequestParam String supabaseUserId) {
         return APIReponse.success("success", applicationService.findByUserSupabaseId(supabaseUserId));
     }
 
@@ -50,14 +49,16 @@ public class ApplicationController {
     }
 
     @PostMapping(APPLICATION)
-    public APIReponse<ApplicationDto> create(@Valid @RequestBody CreateApplicationRequest body) {
-        return APIReponse.success("created", applicationService.create(body));
+    public APIReponse<ApplicationDto> create(
+            @Valid @RequestBody() CreateApplicationRequest body) {
+        return APIReponse.success("success", applicationService.create(body));
     }
 
     @PutMapping(APPLICATION_ID)
-    public APIReponse<ApplicationDto> update(@PathVariable String id,
-            @Nonnull @Valid @RequestBody UpdateApplicationRequest body) {
-        return APIReponse.success("updated", applicationService.update(UUID.fromString(id), body));
+    public APIReponse<ApplicationDto> update(
+            @PathVariable String id,
+            @Valid @RequestBody() UpdateApplicationRequest body) {
+        return APIReponse.success("success", applicationService.update(UUID.fromString(id), body));
 
     }
 
